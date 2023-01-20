@@ -1,7 +1,7 @@
 import React from "react";
 
 function App() {
-  return <div>Main</div>;
+  return <div>NotionBooks</div>;
 }
 
 export default App;
