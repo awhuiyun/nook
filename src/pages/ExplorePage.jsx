@@ -1,9 +1,10 @@
 import React from "react";
+import BookCardContainer from "../components/BookCardContainer";
 
 export default function ExplorePage() {
   return (
     <>
-      <h1>Explore page</h1>
+      <BookCardContainer />
     </>
   );
 }

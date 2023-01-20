@@ -13,9 +13,9 @@ export default function NavBar() {
           className="text-zinc-300 px-2"
         />
         <input
-          className="focus:outline-none placeholder:text-zinc-300 self-center"
+          className="focus:outline-none placeholder:text-zinc-300 self-center bg-transparent"
           type="text"
-          placeholder="Search"
+          placeholder="Search..."
         />
       </div>
       <div className="flex flex-row grow justify-end">
