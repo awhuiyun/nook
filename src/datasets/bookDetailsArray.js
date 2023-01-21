@@ -1,4 +1,4 @@
-const booksArray = [
+const bookDetailsArray = [
   {
     notionPageId: "c47e8eba8c5e4e18ae760376a7a4a67e",
     authorName: "James Clear",
@@ -60,4 +60,4 @@ const booksArray = [
   },
 ];
 
-export default booksArray;
+export default bookDetailsArray;

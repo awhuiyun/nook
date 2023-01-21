@@ -1,8 +1,8 @@
 import React from "react";
-import booksArray from "../../booksArray";
+import bookDetailsArray from "../datasets/bookDetailsArray";
 
 export default function BookDescription({ bookKey }) {
-  const bookDetails = booksArray.filter((item) => {
+  const bookDetails = bookDetailsArray.filter((item) => {
     return item.key === bookKey;
   });
 
