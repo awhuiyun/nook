@@ -8,9 +8,11 @@ export default function BookDetailsPage() {
   const params = useParams();
 
   return (
-    <div className="mx-auto my-16 w-[1180px]">
-      <BookDescription bookKey={params.item} />
-      <BookReviews bookKey={params.item} />
+    <div className="my-16 ">
+      <div className="w-[1180px] mx-auto">
+        <BookDescription bookKey={params.item} />
+        <BookReviews bookKey={params.item} />
+      </div>
       <BookContents bookKey={params.item} />
     </div>
   );

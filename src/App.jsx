@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import ExplorePage from "./pages/ExplorePage";
 import BookDetailsPage from "./pages/BookDetailsPage";
 import PublishFormPage from "./pages/PublishFormPage";
+import NotionApi from "./NotionApi";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/:item" element={<BookDetailsPage />} />
         <Route path="/publish-form" element={<PublishFormPage />} />
       </Routes>
+      {/* <NotionApi /> */}
     </div>
   );
 }

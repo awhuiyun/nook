@@ -1,0 +1,5 @@
+import React from "react";
+
+export default function Paragraph({ content }) {
+  return <div className="px-2 w-[1180px] mx-auto my-5">{content}</div>;
+}

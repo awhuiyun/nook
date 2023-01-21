@@ -72,7 +72,11 @@ function NotionApi() {
     <div>
       <button onClick={getData}>Get data</button>
       {data.map((block) => {
-        return <p>{block.content}</p>;
+        return (
+          <p>
+            {block.type}:{block.content}
+          </p>
+        );
       })}
     </div>
   );
