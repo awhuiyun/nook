@@ -12,6 +12,7 @@ export default function BookCardContainer() {
             imgUrl={item.bookCoverImgLink}
             authorName={item.authorName}
             bookName={item.bookName}
+            bookKey={item.key}
           />
         );
       })}
