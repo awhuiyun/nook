@@ -34,7 +34,7 @@ export default function PublishFormPage() {
   // console.log("Book Price:", bookPrice);
 
   return (
-    <div className="flex flex-col w-1/2 mx-auto mt-10">
+    <div className="flex flex-col w-1/2 mx-auto my-16">
       <p className="font-bold text-3xl mb-5">Publish your book</p>
       <BaseInput
         label="Notion page ID"
@@ -163,7 +163,7 @@ export default function PublishFormPage() {
           </div>
         </div>
       </div>
-      <button className="bg-zinc-700 text-[white] py-2 px-4 my-10 rounded self-center">
+      <button className="bg-zinc-700 text-[white] py-2 px-4 my-10 rounded-md self-center">
         Submit
       </button>
     </div>

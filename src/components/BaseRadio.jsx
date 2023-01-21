@@ -24,7 +24,7 @@ export default function BaseRadio({
         onChange={handleInputChange}
         required={required}
         disabled={disabled}
-        className="my-1 p-2 border border-zinc-700 rounded"
+        className="my-1 p-2 border border-zinc-700 rounded-md"
         placeholder={placeholder ?? ""}
       />
     </label>
