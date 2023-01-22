@@ -15,7 +15,7 @@ export default function BookDescription({ bookKey }) {
       <div className="m-5  text-zinc-700">
         <div className="flex flex-row text-4xl font-bold mb-4">
           <p className="mr-4 w-[700px]">{bookDetails.bookName}</p>
-          <p className="grow text-end">{bookDetails.bookPrice}</p>
+          <p className="grow text-end">${bookDetails.bookPrice}</p>
         </div>
         <p className="text-xl font-medium ">{bookDetails.authorName}</p>
         <p className="text-base mt-10 font-normal">

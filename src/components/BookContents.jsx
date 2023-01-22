@@ -20,8 +20,8 @@ export default function BookContents({ bookKey }) {
     axios
       .get("http://localhost:5000/notion-data", {
         params: {
-          // id: bookDetails.notionPageId,
-          id: "c47e8eba8c5e4e18ae760376a7a4a67e",
+          id: bookDetails.notionPageId,
+          // id: "c47e8eba8c5e4e18ae760376a7a4a67e",
         },
       })
       .then((res) => setBookData(res.data));
