@@ -1,11 +1,10 @@
 import React from "react";
 import BookCard from "./BookCard";
-import bookDetailsArray from "../datasets/bookDetailsArray";
 
-export default function BookCardContainer() {
+export default function BookCardContainer({ bookDetailsDataset }) {
   return (
     <div className="grid grid-cols-3 gap-x-0 gap-y-12 justify-items-center w-[1180px] mx-auto my-16">
-      {bookDetailsArray.map((item) => {
+      {bookDetailsDataset.map((item) => {
         return (
           <BookCard
             key={item.notionPageId}

@@ -4,14 +4,9 @@ import HeadingOne from "./HeadingOne";
 import HeadingTwo from "./HeadingTwo";
 import HeadingThree from "./HeadingThree";
 import Paragraph from "./Paragraph";
-import bookDetailsArray from "../datasets/bookDetailsArray";
 
-export default function BookContents({ bookKey }) {
-  // Book details
-  const bookDetails = bookDetailsArray.filter((item) => {
-    return item.key === bookKey;
-  })[0];
-  const percentToObfuscate = parseFloat(bookDetails.percentObfuscated) / 100;
+export default function BookContents({ percentToObfuscate, notionPageId }) {
+  const percentOfBookToObfuscate = parseFloat(percentToObfuscate) / 100;
 
   // Fetch notion content
   const [bookData, setBookData] = useState([]);
@@ -27,7 +22,7 @@ export default function BookContents({ bookKey }) {
         const percentOfBook = i / data.length;
         if (
           data[i].type !== "heading_1" &&
-          percentOfBook >= 1 - percentToObfuscate
+          percentOfBook >= 1 - percentOfBookToObfuscate
         ) {
           let editedContent = "";
           for (let j = 0; j <= data[i].content.length - 1; j++) {
@@ -71,7 +66,7 @@ export default function BookContents({ bookKey }) {
     axios
       .get("http://localhost:5000/notion-data", {
         params: {
-          id: bookDetails.notionPageId,
+          id: notionPageId,
         },
       })
       .then((res) => {
