@@ -5,12 +5,12 @@ const bookReviewsSlice = createSlice({
   name: "bookReviews",
   initialState: bookReviewsArray,
   reducers: {
-    createNewReview: (state, action) => {
+    createReviewSectionForNewBook: (state, action) => {
       return [...state, action.payload];
     },
   },
 });
 
-export const { createNewReview } = bookReviewsSlice.actions;
+export const { createReviewSectionForNewBook } = bookReviewsSlice.actions;
 
 export default bookReviewsSlice.reducer;

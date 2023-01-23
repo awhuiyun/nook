@@ -30,7 +30,6 @@ export default function BookDetailsPage({ setIsSearchbarNeededFalse }) {
       <div>
         <div className="w-[1180px] mx-auto">
           <BookDescription
-            // bookKey={params.item}
             bookName={bookDetails.bookName}
             bookPrice={bookDetails.bookPrice}
             bookDescription={bookDetails.bookDescription}

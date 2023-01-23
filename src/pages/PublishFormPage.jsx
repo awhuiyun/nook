@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
+import uuid from "react-uuid";
+import { useDispatch } from "react-redux";
+import { createNewBook } from "../store/bookDetails";
+import { createReviewSectionForNewBook } from "../store/bookReviews";
 import BaseInput from "../components/BaseInput";
 import BaseTextArea from "../components/BaseTextArea";
 
 export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
+  // Toggle isSearchbarNeeded to "false"
+  useEffect(() => {
+    setIsSearchbarNeededFalse();
+  }, []);
+
+  const dispatch = useDispatch();
   const [notionPageId, setNotionPageId] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [bookName, setBookName] = useState("");
   const [bookCoverImgLink, setBookCoverImgLink] = useState("");
   const [bookDescription, setBookDescription] = useState("");
   const [bookPrice, setBookPrice] = useState("");
+  const [percentToObfuscate, setPercentToObfuscate] = useState("");
 
   function handleChange(inputId, inputVal) {
     if (inputId === "notionPageId") {
@@ -26,13 +37,54 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
     }
   }
 
-  // Toggle isSearchbarNeeded to "false"
-  useEffect(() => {
-    setIsSearchbarNeededFalse();
-  }, []);
+  function handleChangeForRadioInput(e) {
+    setPercentToObfuscate(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // Create unique key for new book
+    const concatBookName = bookName.replace(/\s+/g, "-").toLowerCase();
+    const id = uuid();
+    const uniqueKey = concatBookName + "-" + id;
+
+    // Add new book to bookDetails store
+    const newBook = {
+      key: uniqueKey,
+      notionPageId: notionPageId,
+      authorName: authorName,
+      bookName: bookName,
+      bookCoverImgLink: bookCoverImgLink,
+      bookDescription: bookDescription,
+      bookPrice: bookPrice,
+      percentObfuscated: percentToObfuscate,
+      isBought: false,
+    };
+    dispatch(createNewBook(newBook));
+
+    // Add new book to bookReviews store
+    const newReviewSectionForNewBook = {
+      bookKey: uniqueKey,
+      reviews: [],
+    };
+    dispatch(createReviewSectionForNewBook(newReviewSectionForNewBook));
+
+    // Clear states
+    setNotionPageId("");
+    setAuthorName("");
+    setBookName("");
+    setBookCoverImgLink("");
+    setBookDescription("");
+    setBookPrice("");
+    setPercentToObfuscate("");
+  }
 
   return (
-    <div className="flex flex-col w-[1180px] mx-auto my-16">
+    <form
+      className="flex flex-col w-[1180px] mx-auto my-16"
+      onSubmit={handleSubmit}
+    >
       <p className="font-bold text-3xl mb-5">Publish your book</p>
       <BaseInput
         label="Notion page ID"
@@ -40,7 +92,7 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
         id="notionPageId"
         value={notionPageId}
         handleChange={handleChange}
-        required="true"
+        required={true}
       />
       <BaseInput
         label="Author"
@@ -48,7 +100,7 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
         id="authorName"
         value={authorName}
         handleChange={handleChange}
-        required="true"
+        required={true}
       />
       <BaseInput
         label="Book title"
@@ -56,7 +108,7 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
         id="bookName"
         value={bookName}
         handleChange={handleChange}
-        required="true"
+        required={true}
       />
       <BaseInput
         label="Book cover image link"
@@ -64,14 +116,14 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
         id="bookCoverImgLink"
         value={bookCoverImgLink}
         handleChange={handleChange}
-        required="true"
+        required={true}
       />
       <BaseTextArea
         label="Book description"
         id="bookDescription"
         value={bookDescription}
         handleChange={handleChange}
-        required="true"
+        required={true}
       />
       <BaseInput
         label="Price"
@@ -79,7 +131,7 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
         id="bookPrice"
         value={bookPrice}
         handleChange={handleChange}
-        required="true"
+        required={true}
       />
       <div className="my-2 p-2">
         <p className="mb-5">Percentage of book obfuscated before purchase:</p>
@@ -90,10 +142,12 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
               type="radio"
               name="percentToObfuscate"
               id="0.1"
+              value="10%"
               className="hidden peer"
+              onChange={handleChangeForRadioInput}
             />
             <label
-              for="0.1"
+              htmlFor="0.1"
               className="border rounded px-4 py-2 cursor-pointer peer-checked:border-zinc-700 peer-checked:bg-zinc-50"
             >
               10%
@@ -105,10 +159,12 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
               type="radio"
               name="percentToObfuscate"
               id="0.25"
+              value="25%"
               className="hidden peer"
+              onChange={handleChangeForRadioInput}
             />
             <label
-              for="0.25"
+              htmlFor="0.25"
               className="border rounded px-4 py-2 cursor-pointer peer-checked:border-zinc-700 peer-checked:bg-zinc-50"
             >
               25%
@@ -120,10 +176,12 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
               type="radio"
               name="percentToObfuscate"
               id="0.5"
+              value="50%"
               className="hidden peer"
+              onChange={handleChangeForRadioInput}
             />
             <label
-              for="0.5"
+              htmlFor="0.5"
               className="border rounded px-4 py-2 cursor-pointer peer-checked:border-zinc-700 peer-checked:bg-zinc-50"
             >
               50%
@@ -135,10 +193,12 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
               type="radio"
               name="percentToObfuscate"
               id="0.75"
+              value="75%"
               className="hidden peer"
+              onChange={handleChangeForRadioInput}
             />
             <label
-              for="0.75"
+              htmlFor="0.75"
               className="border rounded px-4 py-2 cursor-pointer peer-checked:border-zinc-700 peer-checked:bg-zinc-50"
             >
               75%
@@ -150,10 +210,12 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
               type="radio"
               name="percentToObfuscate"
               id="0.9"
+              value="90%"
               className="hidden peer"
+              onChange={handleChangeForRadioInput}
             />
             <label
-              for="0.9"
+              htmlFor="0.9"
               className="border rounded px-4 py-2 cursor-pointer peer-checked:border-zinc-700 peer-checked:bg-zinc-50"
             >
               90%
@@ -161,9 +223,12 @@ export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
           </div>
         </div>
       </div>
-      <button className="bg-zinc-700 text-[white] py-2 px-4 my-10 rounded-md self-center">
+      <button
+        className="bg-zinc-700 text-[white] py-2 px-4 my-10 rounded-md self-center"
+        type="submit"
+      >
         Submit
       </button>
-    </div>
+    </form>
   );
 }
