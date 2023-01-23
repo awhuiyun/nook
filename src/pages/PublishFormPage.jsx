@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BaseInput from "../components/BaseInput";
 import BaseTextArea from "../components/BaseTextArea";
 
-export default function PublishFormPage() {
+export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
   const [notionPageId, setNotionPageId] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [bookName, setBookName] = useState("");
@@ -26,12 +26,10 @@ export default function PublishFormPage() {
     }
   }
 
-  // console.log("Notion Page ID:", notionPageId);
-  // console.log("Author Name:", authorName);
-  // console.log("Book Name:", bookName);
-  // console.log("Book Cover Img Link:", bookCoverImgLink);
-  // console.log("Book description:", bookDescription);
-  // console.log("Book Price:", bookPrice);
+  // Toggle isSearchbarNeeded to "false"
+  useEffect(() => {
+    setIsSearchbarNeededFalse();
+  }, []);
 
   return (
     <div className="flex flex-col w-[1180px] mx-auto my-16">

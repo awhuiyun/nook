@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BookDescription from "../components/BookDescription";
 import BookReviews from "../components/BookReviews";
 import BookContents from "../components/BookContents";
 import Footer from "../components/Footer";
 
-export default function BookDetailsPage() {
+export default function BookDetailsPage({ setIsSearchbarNeededFalse }) {
+  // Toggle isSearchbarNeeded to "false"
+  useEffect(() => {
+    setIsSearchbarNeededFalse();
+  }, []);
+
   const params = useParams();
 
   return (
