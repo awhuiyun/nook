@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar({ isSearchbarNeeded }) {
   return (
-    <div className="flex flex-row h-[80px] content-center backdrop-blur-sm sticky top-0">
+    <div className="flex flex-row h-[80px] content-center backdrop-blur-sm sticky top-0 bg-white/50">
       <Link to="/" className="text-zinc-700 mx-14 my-5 text-3xl self-center ">
         Nook
       </Link>

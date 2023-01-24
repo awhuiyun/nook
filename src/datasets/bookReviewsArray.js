@@ -161,7 +161,7 @@ const bookReviewsArray = [
         key: "1",
         nameOfReviewer: "Taylor Swift",
         rating: "4",
-        review: "",
+        review: "Awesome read!",
       },
       {
         key: "2",

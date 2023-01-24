@@ -4,9 +4,11 @@ import NavBar from "./components/NavBar";
 import ExplorePage from "./pages/ExplorePage";
 import BookDetailsPage from "./pages/BookDetailsPage";
 import PublishFormPage from "./pages/PublishFormPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
-  const [isSearchbarNeeded, setIsSearchbarNeeded] = useState(false);
+  const [isNavBarNeeded, setIsNavBarNeeded] = useState(true);
+  const [isSearchbarNeeded, setIsSearchbarNeeded] = useState(true);
 
   // Functions to toggle the search bar
   function setIsSearchbarNeededTrue() {
@@ -17,14 +19,27 @@ function App() {
     setIsSearchbarNeeded(false);
   }
 
+  // Functions to toggle the NavBar
+  function setIsNavbarNeededTrue() {
+    setIsNavBarNeeded(true);
+  }
+
+  function setIsNavbarNeededFalse() {
+    setIsNavBarNeeded(false);
+  }
+
   return (
     <div>
-      <NavBar isSearchbarNeeded={isSearchbarNeeded} />
+      {isNavBarNeeded && <NavBar isSearchbarNeeded={isSearchbarNeeded} />}
+
       <Routes>
         <Route
           path="/"
           element={
-            <ExplorePage setIsSearchbarNeededTrue={setIsSearchbarNeededTrue} />
+            <ExplorePage
+              setIsSearchbarNeededTrue={setIsSearchbarNeededTrue}
+              setIsNavbarNeededTrue={setIsNavbarNeededTrue}
+            />
           }
         />
         <Route
@@ -32,6 +47,7 @@ function App() {
           element={
             <BookDetailsPage
               setIsSearchbarNeededFalse={setIsSearchbarNeededFalse}
+              setIsNavbarNeededTrue={setIsNavbarNeededTrue}
             />
           }
         />
@@ -40,7 +56,14 @@ function App() {
           element={
             <PublishFormPage
               setIsSearchbarNeededFalse={setIsSearchbarNeededFalse}
+              setIsNavbarNeededTrue={setIsNavbarNeededTrue}
             />
+          }
+        />
+        <Route
+          path="/checkout/:item"
+          element={
+            <CheckoutPage setIsNavbarNeededFalse={setIsNavbarNeededFalse} />
           }
         />
       </Routes>

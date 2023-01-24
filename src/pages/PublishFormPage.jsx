@@ -6,9 +6,13 @@ import { createReviewSectionForNewBook } from "../store/bookReviews";
 import BaseInput from "../components/BaseInput";
 import BaseTextArea from "../components/BaseTextArea";
 
-export default function PublishFormPage({ setIsSearchbarNeededFalse }) {
-  // Toggle isSearchbarNeeded to "false"
+export default function PublishFormPage({
+  setIsNavbarNeededTrue,
+  setIsSearchbarNeededFalse,
+}) {
+  // Toggle isNavbarNeeded and isSearchbarNeeded
   useEffect(() => {
+    setIsNavbarNeededTrue();
     setIsSearchbarNeededFalse();
   }, []);
 

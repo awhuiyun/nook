@@ -6,9 +6,13 @@ import BookReviews from "../components/BookReviews";
 import BookContents from "../components/BookContents";
 import Footer from "../components/Footer";
 
-export default function BookDetailsPage({ setIsSearchbarNeededFalse }) {
-  // Toggle isSearchbarNeeded to "false"
+export default function BookDetailsPage({
+  setIsNavbarNeededTrue,
+  setIsSearchbarNeededFalse,
+}) {
+  // Toggle isNavbarNeeded and isSearchbarNeeded
   useEffect(() => {
+    setIsNavbarNeededTrue();
     setIsSearchbarNeededFalse();
   }, []);
 
@@ -43,7 +47,7 @@ export default function BookDetailsPage({ setIsSearchbarNeededFalse }) {
           notionPageId={bookDetails.notionPageId}
         />
       </div>
-      <Footer bookPrice={bookDetails.bookPrice} />
+      <Footer bookKey={params.item} bookPrice={bookDetails.bookPrice} />
     </div>
   );
 }
