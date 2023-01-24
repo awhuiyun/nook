@@ -10,7 +10,7 @@ export default function BookReviews({ bookReviews }) {
   }, [bookReviews]);
 
   return (
-    <div className="flex flex-row my-32  overflow-x-auto">
+    <div className="flex flex-row my-32 overflow-x-auto">
       {numOfReviews === 0 ? (
         <div className="border">
           <p className="italic">No reviews yet.</p>

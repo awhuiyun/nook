@@ -34,13 +34,17 @@ export default function BookDetailsPage({
       <div>
         <div className="w-[1180px] mx-auto">
           <BookDescription
+            isBought={bookDetails.isBought}
             bookName={bookDetails.bookName}
             bookPrice={bookDetails.bookPrice}
             bookDescription={bookDetails.bookDescription}
             bookCoverImgLink={bookDetails.bookCoverImgLink}
             authorName={bookDetails.authorName}
           />
-          <BookReviews bookReviews={bookReviews} />
+          <BookReviews
+            // isBought={bookDetails.isBought}
+            bookReviews={bookReviews}
+          />
         </div>
         <BookContents
           isBought={bookDetails.isBought}
@@ -48,7 +52,15 @@ export default function BookDetailsPage({
           notionPageId={bookDetails.notionPageId}
         />
       </div>
-      <Footer bookKey={params.item} bookPrice={bookDetails.bookPrice} />
+      {bookDetails.isBought ? (
+        <div className="bg-white h-[80px] mt-16"></div>
+      ) : (
+        <Footer
+          isBought={bookDetails.isBought}
+          bookKey={params.item}
+          bookPrice={bookDetails.bookPrice}
+        />
+      )}
     </div>
   );
 }
