@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setIsBoughtToTrue } from "../store/bookDetails";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,10 +20,52 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
     return item.key === params.item;
   })[0];
 
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardExpiryDate, setCardExpiryDate] = useState("");
+  const [cardCvc, setCardCvc] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [location, setLocation] = useState("");
+
+  function handleChange(e) {
+    if (e.target.id === "email") {
+      setEmail(e.target.value);
+    } else if (e.target.id === "card number") {
+      setCardNumber(e.target.value);
+    } else if (e.target.id === "card expiry date") {
+      setCardExpiryDate(e.target.value);
+    } else if (e.target.id === "card cvc") {
+      setCardCvc(e.target.value);
+    } else if (e.target.id === "name") {
+      setCardName(e.target.value);
+    } else if (e.target.id === "location") {
+      setLocation(e.target.value);
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // Form validation
+    // Update isBought to "true" in bookDetails store
+    dispatch(setIsBoughtToTrue(params.item));
+
+    // Reset states
+    setEmail("");
+    setCardNumber("");
+    setCardExpiryDate("");
+    setCardCvc("");
+    setCardName("");
+    setLocation("");
+
+    // Route to purchase confirmation page
+  }
+
   return (
     <div className="flex flex-row">
       <div className="w-1/2 bg-zinc-700 h-screen grid items-center justify-items-end">
-        <div className="w-[500px] h-[900px] mr-[100px]">
+        <div className="w-[500px] h-[630px] mr-[100px]">
           <Link
             to={`/${params.item}`}
             className="flex flex-row text-zinc-500 hover:text-white mt-5"
@@ -46,7 +90,10 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
         </div>
       </div>
       <div className="w-1/2 h-screen grid items-center justify-items-start text-zinc-700">
-        <form className="w-[500px] h-[900px] ml-[100px] ">
+        <form
+          className="w-[500px] h-[630px] ml-[100px]"
+          onSubmit={handleSubmit}
+        >
           {/* Contact Information */}
           <div>
             <p className="m-5 text-lg">Contact information</p>
@@ -55,7 +102,9 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
               <input
                 type="text"
                 id="email"
+                value={email}
                 required
+                onChange={handleChange}
                 className="text-sm p-3 bg-transparent focus:outline-none grow ml-10 "
               />
             </div>
@@ -67,7 +116,9 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
             type="text"
             id="card number"
             placeholder="1234 1234 1234 1234"
+            value={cardNumber}
             required
+            onChange={handleChange}
             className="text-sm bg-white mx-5 p-3 focus:outline-none rounded-t-md border border-zinc-200 w-[458px] drop-shadow"
           />
           <div className="flex flex-row">
@@ -75,12 +126,18 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
               type="text"
               id="card expiry date"
               placeholder="MM / YY"
+              value={cardExpiryDate}
+              required
+              onChange={handleChange}
               className="text-sm bg-white ml-5 p-3 focus:outline-none rounded-bl-md border-b border-r border-l border-zinc-200 w-[229px] drop-shadow-sm"
             />
             <input
               type="text"
               id="card cvc"
               placeholder="CVC"
+              value={cardCvc}
+              required
+              onChange={handleChange}
               className="text-sm bg-white mr-5 p-3 focus:outline-none rounded-br-md border-b border-r border-zinc-200 w-[229px] drop-shadow-sm"
             />
           </div>
@@ -88,14 +145,18 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
           <input
             type="text"
             id="name"
+            value={cardName}
             required
+            onChange={handleChange}
             className="text-sm bg-white mx-5 p-3 focus:outline-none rounded-md border border-zinc-200 w-[458px] drop-shadow-sm"
           />
           <p className="mx-5 mt-5 mb-2 text-sm">Country or region</p>
           <input
             type="text"
-            id="name"
+            id="location"
+            value={location}
             required
+            onChange={handleChange}
             className="text-sm bg-white mx-5 p-3 focus:outline-none rounded-md border border-zinc-200 w-[458px] drop-shadow-sm"
           />
           <button

@@ -43,6 +43,7 @@ export default function BookDetailsPage({
           <BookReviews bookReviews={bookReviews} />
         </div>
         <BookContents
+          isBought={bookDetails.isBought}
           percentToObfuscate={bookDetails.percentObfuscated}
           notionPageId={bookDetails.notionPageId}
         />

@@ -8,9 +8,18 @@ const bookDetailsSlice = createSlice({
     createNewBook: (state, action) => {
       return [...state, action.payload];
     },
+    setIsBoughtToTrue: (state, action) => {
+      return state.map((book) => {
+        if (book.key === action.payload) {
+          return { ...book, isBought: true };
+        } else {
+          return book;
+        }
+      });
+    },
   },
 });
 
-export const { createNewBook } = bookDetailsSlice.actions;
+export const { createNewBook, setIsBoughtToTrue } = bookDetailsSlice.actions;
 
 export default bookDetailsSlice.reducer;
