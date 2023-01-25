@@ -23,14 +23,41 @@ export default function BookContents({
 
     if (data.length > 0) {
       for (let i = 0; i <= data.length - 1; i++) {
+        // Calculate the percent of book
         const percentOfBook = i / data.length;
+
+        // Probability of obfuscation for each word in the block. It increases with % of book
+        let probabilityOfObfuscate;
+        if (percentOfBook >= 0.1 && percentOfBook < 0.2) {
+          probabilityOfObfuscate = 0.1;
+        } else if (percentOfBook >= 0.2 && percentOfBook < 0.3) {
+          probabilityOfObfuscate = 0.2;
+        } else if (percentOfBook >= 0.3 && percentOfBook < 0.4) {
+          probabilityOfObfuscate = 0.3;
+        } else if (percentOfBook >= 0.4 && percentOfBook < 0.5) {
+          probabilityOfObfuscate = 0.4;
+        } else if (percentOfBook >= 0.5 && percentOfBook < 0.6) {
+          probabilityOfObfuscate = 0.5;
+        } else if (percentOfBook >= 0.6 && percentOfBook < 0.7) {
+          probabilityOfObfuscate = 0.6;
+        } else if (percentOfBook >= 0.7 && percentOfBook < 0.8) {
+          probabilityOfObfuscate = 0.7;
+        } else if (percentOfBook >= 0.8) {
+          probabilityOfObfuscate = 0.8;
+        }
+
         if (
           data[i].type !== "heading_1" &&
           percentOfBook >= 1 - percentOfBookToObfuscate
         ) {
           let editedContent = "";
           for (let j = 0; j <= data[i].content.length - 1; j++) {
-            if (data[i].content[j].match(/[a-z]/i)) {
+            // For each letter in the block, calculate if it will be obfuscated
+            const randNum = Math.random();
+            if (
+              data[i].content[j].match(/[a-z]/i) &&
+              randNum <= probabilityOfObfuscate
+            ) {
               if (data[i].content[j] === data[i].content[j].toUpperCase()) {
                 const randChar = characters
                   .charAt(Math.floor(Math.random() * characters.length))
