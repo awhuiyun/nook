@@ -4,6 +4,7 @@ import HeadingOne from "./HeadingOne";
 import HeadingTwo from "./HeadingTwo";
 import HeadingThree from "./HeadingThree";
 import Paragraph from "./Paragraph";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function BookContents({
   isBought,
@@ -92,9 +93,10 @@ export default function BookContents({
   }
 
   // GET request function to backend to fetch data
-  function getData() {
+  async function getData() {
     setIsLoading(true);
-    axios
+
+    await axios
       .get("http://localhost:5000/notion-data", {
         params: {
           id: notionPageId,
@@ -103,8 +105,9 @@ export default function BookContents({
       .then((res) => {
         setBookData(res.data);
         obfuscateData(res.data);
-      })
-      .then(setIsLoading(false));
+      });
+
+    setIsLoading(false);
   }
 
   // Call GET request on mount
@@ -112,14 +115,12 @@ export default function BookContents({
     getData();
   }, []);
 
-  console.log(isBought);
-
   return (
     <div className="text-zinc-700">
       {isLoading ? (
-        <p className="h-[240px] bg-zinc-200 font-bold text-5xl text-center pt-[96px] my-24">
-          Loading...
-        </p>
+        <div className="text-center">
+          <LoadingSpinner />
+        </div>
       ) : isBought ? (
         bookData.map((item, index) => {
           if (item.type === "heading_1") {

@@ -40,8 +40,7 @@ export default function BookDetailsPage({
   function setAddReviewSectionOpenFalse() {
     setIsAddReviewSectionOpen(false);
   }
-  console.log(bookDetails);
-  // console.log("review", isAddReviewSectionOpen);
+
   return (
     <div className="h-screen mt-16 ">
       {isAddReviewSectionOpen && (

@@ -6,8 +6,6 @@ import { createNewBook } from "../store/bookDetails";
 import { createReviewSectionForNewBook } from "../store/bookReviews";
 import BaseInput from "../components/BaseInput";
 import BaseTextArea from "../components/BaseTextArea";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function PublishFormPage({
   setIsNavbarNeededTrue,
