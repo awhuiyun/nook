@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setIsBoughtToTrue } from "../store/bookDetails";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function CheckoutPage({ setIsNavbarNeededFalse }) {
   // Toggle isNavbarNeeded
@@ -110,9 +110,8 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
 
           {bookDetails.isBought ? (
             <div>
-              <p className="text-2xl mt-[100px] text-emerald-500 ml-8 mb-2 text-start">
-                <FontAwesomeIcon icon={faCircleCheck} className="mr-4" />
-                Purchased
+              <p className="text-2xl mt-[100px] text-white ml-8 mb-2 text-start">
+                &#127881; Purchased
               </p>
             </div>
           ) : (
