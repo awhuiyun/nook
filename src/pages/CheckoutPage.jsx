@@ -28,13 +28,43 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
   const [cardName, setCardName] = useState("");
   const [location, setLocation] = useState("");
 
+  // Functions to format credit card inputs
+  function clearNumber(value = "") {
+    return value.replace(/\D+/g, "");
+  }
+
+  function formatCreditCardNumber(value) {
+    if (!value) {
+      return value;
+    }
+
+    const clearValue = clearNumber(value);
+    let nextValue;
+    nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
+      4,
+      8
+    )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 19)}`;
+    return nextValue.trim();
+  }
+
+  function formatExpirationDate(value) {
+    const clearValue = clearNumber(value);
+
+    if (clearValue.length >= 3) {
+      return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`;
+    }
+
+    return clearValue;
+  }
+
+  // Function to handle changes in input
   function handleChange(e) {
     if (e.target.id === "email") {
       setEmail(e.target.value);
     } else if (e.target.id === "card number") {
-      setCardNumber(e.target.value);
+      setCardNumber(formatCreditCardNumber(e.target.value));
     } else if (e.target.id === "card expiry date") {
-      setCardExpiryDate(e.target.value);
+      setCardExpiryDate(formatExpirationDate(e.target.value));
     } else if (e.target.id === "card cvc") {
       setCardCvc(e.target.value);
     } else if (e.target.id === "name") {
@@ -100,7 +130,7 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
             <div className="flex flex-row h-[45px] mx-5 rounded-md border bg-zinc-100 drop-shadow-md">
               <p className="text-sm m-3 place-self-center">Email</p>
               <input
-                type="text"
+                type="email"
                 id="email"
                 value={email}
                 required
@@ -117,6 +147,7 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
             id="card number"
             placeholder="1234 1234 1234 1234"
             value={cardNumber}
+            maxLength="19"
             required
             onChange={handleChange}
             className="text-sm bg-white mx-5 p-3 focus:outline-none rounded-t-md border border-zinc-200 w-[458px] drop-shadow"
@@ -126,6 +157,7 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
               type="text"
               id="card expiry date"
               placeholder="MM / YY"
+              pattern="\d\d/\d\d"
               value={cardExpiryDate}
               required
               onChange={handleChange}
@@ -136,6 +168,8 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
               id="card cvc"
               placeholder="CVC"
               value={cardCvc}
+              maxLength="3"
+              pattern="\d{3}"
               required
               onChange={handleChange}
               className="text-sm bg-white mr-5 p-3 focus:outline-none rounded-br-md border-b border-r border-zinc-200 w-[229px] drop-shadow-sm"
