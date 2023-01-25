@@ -17,9 +17,20 @@ const bookDetailsSlice = createSlice({
         }
       });
     },
+    setIsReviewedToTrue: (state, action) => {
+      return state.map((book) => {
+        console.log(book.key, action.payload);
+        if (book.key === action.payload) {
+          return { ...book, isReviewed: true };
+        } else {
+          return book;
+        }
+      });
+    },
   },
 });
 
-export const { createNewBook, setIsBoughtToTrue } = bookDetailsSlice.actions;
+export const { createNewBook, setIsBoughtToTrue, setIsReviewedToTrue } =
+  bookDetailsSlice.actions;
 
 export default bookDetailsSlice.reducer;

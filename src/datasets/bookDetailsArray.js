@@ -11,6 +11,7 @@ const bookDetailsArray = [
     bookPrice: "27.90",
     percentObfuscated: "75%",
     isBought: false,
+    isReviewed: false,
   },
   {
     key: "make-time",
@@ -24,6 +25,7 @@ const bookDetailsArray = [
     bookPrice: "28.00",
     percentObfuscated: "75%",
     isBought: false,
+    isReviewed: false,
   },
   {
     key: "grit",
@@ -37,6 +39,7 @@ const bookDetailsArray = [
     bookPrice: "18.99",
     percentObfuscated: "75%",
     isBought: false,
+    isReviewed: false,
   },
   {
     key: "mindset",
@@ -49,6 +52,7 @@ const bookDetailsArray = [
     bookPrice: "17.00",
     percentObfuscated: "75%",
     isBought: false,
+    isReviewed: false,
   },
   {
     key: "limitless",
@@ -62,6 +66,7 @@ const bookDetailsArray = [
     bookPrice: "12.99",
     percentObfuscated: "75%",
     isBought: false,
+    isReviewed: false,
   },
 ];
 

@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import BookDescription from "../components/BookDescription";
 import BookReviews from "../components/BookReviews";
 import BookContents from "../components/BookContents";
 import Footer from "../components/Footer";
+import AddReview from "../components/AddReview";
 
 export default function BookDetailsPage({
   setIsNavbarNeededTrue,
@@ -29,8 +30,26 @@ export default function BookDetailsPage({
     return item.bookKey === params.item;
   })[0];
 
+  // State to manage AddReview section
+  const [isAddReviewSectionOpen, setIsAddReviewSectionOpen] = useState(false);
+
+  function setAddReviewSectionOpenTrue() {
+    setIsAddReviewSectionOpen(true);
+  }
+
+  function setAddReviewSectionOpenFalse() {
+    setIsAddReviewSectionOpen(false);
+  }
+  console.log(bookDetails);
+  // console.log("review", isAddReviewSectionOpen);
   return (
     <div className="h-screen mt-16 ">
+      {isAddReviewSectionOpen && (
+        <AddReview
+          bookKey={params.item}
+          setAddReviewSectionOpenFalse={setAddReviewSectionOpenFalse}
+        />
+      )}
       <div>
         <div className="w-[1180px] mx-auto">
           <BookDescription
@@ -42,8 +61,10 @@ export default function BookDetailsPage({
             authorName={bookDetails.authorName}
           />
           <BookReviews
-            // isBought={bookDetails.isBought}
+            isBought={bookDetails.isBought}
+            isReviewed={bookDetails.isReviewed}
             bookReviews={bookReviews}
+            setAddReviewSectionOpenTrue={setAddReviewSectionOpenTrue}
           />
         </div>
         <BookContents

@@ -9,6 +9,7 @@ export default function BaseInput({
   required = false,
   disabled = false,
   placeholder,
+  className,
 }) {
   function handleInputChange(e) {
     handleChange(e.target.id, e.target.value);
@@ -24,7 +25,9 @@ export default function BaseInput({
         onChange={handleInputChange}
         required={required}
         disabled={disabled}
-        className="my-1 p-2 border border-zinc-700 rounded-md"
+        className={`my-1 p-2 border border-zinc-700 rounded-md ${
+          className ?? ""
+        }`}
         placeholder={placeholder ?? ""}
       />
     </label>
