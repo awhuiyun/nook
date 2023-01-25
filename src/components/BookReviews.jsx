@@ -32,8 +32,8 @@ export default function BookReviews({
       )}
       <div className="flex flex-row mt-5 mb-32 overflow-x-auto">
         {numOfReviews === 0 ? (
-          <div className="border">
-            <p className="italic">No reviews yet.</p>
+          <div>
+            <p className="mx-5 italic">No reviews yet.</p>
           </div>
         ) : (
           bookReviews.reviews.map((item) => {
