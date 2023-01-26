@@ -4,6 +4,8 @@ import HeadingOne from "./HeadingOne";
 import HeadingTwo from "./HeadingTwo";
 import HeadingThree from "./HeadingThree";
 import Paragraph from "./Paragraph";
+import BulletedItem from "./BulletedItem";
+import ImageItem from "./ImageItem";
 import LoadingSpinner from "./LoadingSpinner";
 
 export default function BookContents({
@@ -131,6 +133,15 @@ export default function BookContents({
             return <HeadingThree key={index} content={item.content} />;
           } else if (item.type === "paragraph") {
             return <Paragraph key={index} content={item.content} />;
+          } else if (item.type === "line_break") {
+            return <br />;
+          } else if (
+            item.type === "bulleted_list_item" ||
+            item.type === "numbered_list_item"
+          ) {
+            return <BulletedItem key={index} content={item.content} />;
+          } else if (item.type === "image") {
+            return <ImageItem url={item.content} />;
           }
         })
       ) : (
@@ -143,6 +154,15 @@ export default function BookContents({
             return <HeadingThree key={index} content={item.content} />;
           } else if (item.type === "paragraph") {
             return <Paragraph key={index} content={item.content} />;
+          } else if (item.type === "line_break") {
+            return <br />;
+          } else if (
+            item.type === "bulleted_list_item" ||
+            item.type === "numbered_list_item"
+          ) {
+            return <BulletedItem key={index} content={item.content} />;
+          } else if (item.type === "image") {
+            return <ImageItem url={item.content} />;
           }
         })
       )}
