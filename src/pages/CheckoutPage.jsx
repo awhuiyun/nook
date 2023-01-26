@@ -29,16 +29,20 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
   const [location, setLocation] = useState("");
 
   // Functions to format credit card inputs
+  // Function that removes any non-digits from string
   function clearNumber(value = "") {
     return value.replace(/\D+/g, "");
   }
 
   function formatCreditCardNumber(value) {
+    // If no value, return it
     if (!value) {
       return value;
     }
-
+    // First, remove non-digits
     const clearValue = clearNumber(value);
+
+    // Splits into sections of 4
     let nextValue;
     nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
       4,
@@ -48,8 +52,10 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
   }
 
   function formatExpirationDate(value) {
+    // First, remove non-digits
     const clearValue = clearNumber(value);
 
+    // Split and include forward slash
     if (clearValue.length >= 3) {
       return `${clearValue.slice(0, 2)}/${clearValue.slice(2, 4)}`;
     }
@@ -88,10 +94,8 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
     setCardCvc("");
     setCardName("");
     setLocation("");
-
-    // Route to purchase confirmation page
   }
-  console.log(bookDetails.isBought);
+
   return (
     <div className="flex flex-row">
       <div className="w-1/2 bg-zinc-700 h-screen grid items-center justify-items-end">

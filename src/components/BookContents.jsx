@@ -29,25 +29,8 @@ export default function BookContents({
         // Calculate the percent of book
         const percentOfBook = i / data.length;
 
-        // Probability of obfuscation for each word in the block. It increases with % of book
-        let probabilityOfObfuscate;
-        if (percentOfBook >= 0.1 && percentOfBook < 0.2) {
-          probabilityOfObfuscate = 0.1;
-        } else if (percentOfBook >= 0.2 && percentOfBook < 0.3) {
-          probabilityOfObfuscate = 0.2;
-        } else if (percentOfBook >= 0.3 && percentOfBook < 0.4) {
-          probabilityOfObfuscate = 0.3;
-        } else if (percentOfBook >= 0.4 && percentOfBook < 0.5) {
-          probabilityOfObfuscate = 0.4;
-        } else if (percentOfBook >= 0.5 && percentOfBook < 0.6) {
-          probabilityOfObfuscate = 0.5;
-        } else if (percentOfBook >= 0.6 && percentOfBook < 0.7) {
-          probabilityOfObfuscate = 0.6;
-        } else if (percentOfBook >= 0.7 && percentOfBook < 0.8) {
-          probabilityOfObfuscate = 0.7;
-        } else if (percentOfBook >= 0.8) {
-          probabilityOfObfuscate = 0.8;
-        }
+        // Probability of obfuscation for each word in the block. It increases with % of book.
+        const probabilityOfObfuscate = Math.floor(percentOfBook * 10) / 10;
 
         if (
           data[i].type !== "heading_1" &&
@@ -95,10 +78,10 @@ export default function BookContents({
   }
 
   // GET request function to backend to fetch data
-  async function getData() {
+  function getData() {
     setIsLoading(true);
 
-    await axios
+    axios
       .get("http://localhost:5000/notion-data", {
         params: {
           id: notionPageId,
@@ -107,9 +90,11 @@ export default function BookContents({
       .then((res) => {
         setBookData(res.data);
         obfuscateData(res.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-
-    setIsLoading(false);
   }
 
   // Call GET request on mount
