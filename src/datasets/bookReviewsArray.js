@@ -4,43 +4,45 @@ const bookReviewsArray = [
     reviews: [
       {
         key: "1",
-        nameOfReviewer: "Samantha Green",
-        rating: "4",
+        nameOfReviewer: "Greg",
+        rating: "5",
         review:
-          "Awesome read, changed my life! Please go buy it. I bought one for my dog.",
+          "My top 3 takeaways from this book are: (1) Forget about goals, focus on the system instead. (2) Change your identity to change your habits. (3) Motivation is overrated. Design the environment to support your habits.",
       },
       {
         key: "2",
-        nameOfReviewer: "Samantha Green",
-        rating: "4",
-        review: "Awesome read, changed my life!",
+        nameOfReviewer: "Emily",
+        rating: "5",
+        review:
+          "I was prepared to dislike this book but I really enjoyed it! Super accesible, bitesize chapters and practical tips to change your life.",
       },
       {
         key: "3",
-        nameOfReviewer: "Samantha Green",
+        nameOfReviewer: "Lily",
         rating: "4",
-        review: "Awesome read, changed my life!",
+        review:
+          "This is the only book on habits you should read. It lays out all the rules of changing/developing habits in a simple, straighforward manner.",
       },
       {
         key: "4",
-        nameOfReviewer: "Samantha Green",
+        nameOfReviewer: "Sean Barrs",
         rating: "4",
         review:
-          "Awesome read, changed my life! Please go buy it. I bought one for my dog.",
+          "Every action is a vote for the type of person you wish to become. My fav quote. Great read!",
       },
       {
         key: "5",
-        nameOfReviewer: "Samantha Green",
+        nameOfReviewer: "Valaria",
         rating: "4",
         review:
-          "Awesome read, changed my life! Please go buy it. I bought one for my dog. He bought one for his cat friend.",
+          "I really enjoyed how easily digested this book was. We all have certain habits we want to learn/unlearn and we usually start strong but lack the motivation to stick to it. This book teaches you how. ",
       },
       {
         key: "6",
-        nameOfReviewer: "Samantha Green",
+        nameOfReviewer: "Ray",
         rating: "4",
         review:
-          "Awesome read, changed my life! Please go buy it. I bought one for my dog. He bought one for his cat friend. Buy it for your rabbits and friends too!",
+          "This is a life-changing non-fiction is one often spoken of, highly praised and much recommended. I get the hype. Great book!",
       },
     ],
   },
@@ -49,38 +51,34 @@ const bookReviewsArray = [
     reviews: [
       {
         key: "1",
-        nameOfReviewer: "Cove Ferries",
+        nameOfReviewer: "Cindy",
         rating: "4",
         review:
-          "A must read! Helped me prioritise whats important in my life :)",
+          "A great reminder to prioritize your life around your passions and values rather than reacting to what other people/your job/society demands of you. A solid read!",
       },
       {
         key: "2",
-        nameOfReviewer: "Cove Ferries",
+        nameOfReviewer: "Imola",
         rating: "4",
-        review:
-          "A must read! Helped me prioritise whats important in my life :)",
+        review: "A game changer for me!",
       },
       {
         key: "3",
-        nameOfReviewer: "Cove Ferries",
+        nameOfReviewer: "Tim",
         rating: "4",
-        review:
-          "A must read! Helped me prioritise whats important in my life :)",
+        review: "Solid. Great tips to focus on what matters most!",
       },
       {
         key: "4",
-        nameOfReviewer: "Cove Ferries",
+        nameOfReviewer: "Zoe",
         rating: "4",
-        review:
-          "A must read! Helped me prioritise whats important in my life :)",
+        review: "A easy and fun read but packed with so much insight!",
       },
       {
         key: "5",
-        nameOfReviewer: "Cove Ferries",
+        nameOfReviewer: "Robin",
         rating: "4",
-        review:
-          "A must read! Helped me prioritise whats important in my life :)",
+        review: "A very useful book :) ",
       },
     ],
   },
@@ -88,34 +86,23 @@ const bookReviewsArray = [
     bookKey: "grit",
     reviews: [
       {
+        key: "3",
+        nameOfReviewer: "H.A.",
+        rating: "4",
+        review:
+          "What an inspiring and very well written book! Humans like to believe in innate natural gift that allows some people to stand out in the crowd. Yet, the author suggests that she has yet to meet an extraordinary successful person who says what they achieved came in any other way than being gritty.",
+      },
+      {
         key: "1",
-        nameOfReviewer: "Kristin John",
+        nameOfReviewer: "Kelly",
         rating: "4",
         review: "An important reminder that consistency is key!",
       },
       {
         key: "2",
-        nameOfReviewer: "Kristin John",
-        rating: "4",
-        review: "An important reminder that consistency is key!",
-      },
-      {
-        key: "3",
-        nameOfReviewer: "Kristin John",
-        rating: "4",
-        review: "An important reminder that consistency is key!",
-      },
-      {
-        key: "4",
-        nameOfReviewer: "Kristin John",
-        rating: "4",
-        review: "An important reminder that consistency is key!",
-      },
-      {
-        key: "5",
-        nameOfReviewer: "Kristin John",
-        rating: "4",
-        review: "An important reminder that consistency is key!",
+        nameOfReviewer: "John",
+        rating: "2",
+        review: "Honestly, I hoped for more. But this book fell short for me. ",
       },
     ],
   },
@@ -156,6 +143,146 @@ const bookReviewsArray = [
   },
   {
     bookKey: "limitless",
+    reviews: [
+      {
+        key: "1",
+        nameOfReviewer: "Taylor Swift",
+        rating: "4",
+        review: "Awesome read!",
+      },
+      {
+        key: "2",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "3",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "4",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "5",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+    ],
+  },
+  {
+    bookKey: "deep-work",
+    reviews: [
+      {
+        key: "1",
+        nameOfReviewer: "Taylor Swift",
+        rating: "4",
+        review: "Awesome read!",
+      },
+      {
+        key: "2",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "3",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "4",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "5",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+    ],
+  },
+  {
+    bookKey: "psychology-of-money",
+    reviews: [
+      {
+        key: "1",
+        nameOfReviewer: "Taylor Swift",
+        rating: "4",
+        review: "Awesome read!",
+      },
+      {
+        key: "2",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "3",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "4",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "5",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+    ],
+  },
+  {
+    bookKey: "seven-husbands-of-evelyn-hugo",
+    reviews: [
+      {
+        key: "1",
+        nameOfReviewer: "Taylor Swift",
+        rating: "4",
+        review: "Awesome read!",
+      },
+      {
+        key: "2",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "3",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "4",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+      {
+        key: "5",
+        nameOfReviewer: "Tom Holland",
+        rating: "4",
+        review: "Growth > Fixed mindest",
+      },
+    ],
+  },
+  {
+    bookKey: "malibu-rising",
     reviews: [
       {
         key: "1",

@@ -68,6 +68,62 @@ const bookDetailsArray = [
     isBought: false,
     isReviewed: false,
   },
+  {
+    key: "deep-work",
+    notionPageId: "da15175219784ef1b98dc6803fdc3ff8",
+    authorName: "Cal Newport",
+    bookName: "Deep Work: Rules for Focused Success in a Distracted World ",
+    bookCoverImgLink: "https://m.media-amazon.com/images/I/51ygINtzhJL.jpg",
+    bookDescription:
+      "Deep work is the ability to focus without distraction on a cognitively demanding task. It's a skill that allows you to quickly master complicated information and produce better results in less time. Deep Work will make you better at what you do and provide the sense of true fulfillment that comes from craftsmanship. In short, deep work is like a super power in our increasingly competitive 21st century economy. And yet, most people have lost the ability to go deep-spending their days instead in a frantic blur of email and social media, not even realizing there's a better way. In Deep Work, author and professor Cal Newport flips the narrative on impact in a connected age. Instead of arguing distraction is bad, he instead celebrates the power of its opposite. Dividing this audiobook into two parts, he first makes the case that in almost any profession, cultivating a deep work ethic will produce massive benefits. He then presents a rigorous training regimen, presented as a series of four rules, for transforming your mind and habits to support this skill.",
+    bookPrice: "12.99",
+    percentObfuscated: "90%",
+    isBought: false,
+    isReviewed: false,
+  },
+  {
+    key: "psychology-of-money",
+    notionPageId: "82c6a9d58f694016afcd11d13d76694a",
+    authorName: "Cal Newport",
+    bookName:
+      "The Psychology of Money: Timeless lessons on wealth, greed, and happiness",
+    bookCoverImgLink:
+      "https://m.media-amazon.com/images/I/41v+g6LqafL._SY346_.jpg",
+    bookDescription:
+      "Doing well with money isn’t necessarily about what you know. It’s about how you behave. And behavior is hard to teach, even to really smart people. Money—investing, personal finance, and business decisions—is typically taught as a math-based field, where data and formulas tell us exactly what to do. But in the real world people don’t make financial decisions on a spreadsheet. They make them at the dinner table, or in a meeting room, where personal history, your own unique view of the world, ego, pride, marketing, and odd incentives are scrambled together. In The Psychology of Money, award-winning author Morgan Housel shares 19 short stories exploring the strange ways people think about money and teaches you how to make better sense of one of life’s most important topics.",
+    bookPrice: "12.99",
+    percentObfuscated: "90%",
+    isBought: false,
+    isReviewed: false,
+  },
+  {
+    key: "seven-husbands-of-evelyn-hugo",
+    notionPageId: "05406e4514884dd88f77e46eae2517f6",
+    authorName: "Taylor Jenkin Reid",
+    bookName: "Seven Husbands of Evelyn Hugo",
+    bookCoverImgLink:
+      "https://m.media-amazon.com/images/I/41x4eg5KyGL._SX320_BO1,204,203,200_.jpg",
+    bookDescription:
+      "Aging and reclusive Hollywood movie icon Evelyn Hugo is finally ready to tell the truth about her glamorous and scandalous life. But when she chooses unknown magazine reporter Monique Grant for the job, no one is more astounded than Monique herself. Why her? Why now? Monique is not exactly on top of the world. Her husband has left her, and her professional life is going nowhere. Regardless of why Evelyn has selected her to write her biography, Monique is determined to use this opportunity to jumpstart her career. Summoned to Evelyn’s luxurious apartment, Monique listens in fascination as the actress tells her story. From making her way to Los Angeles in the 1950s to her decision to leave show business in the ‘80s, and, of course, the seven husbands along the way, Evelyn unspools a tale of ruthless ambition, unexpected friendship, and a great forbidden love. Monique begins to feel a very real connection to the legendary star, but as Evelyns story near its conclusion, it becomes clear that her life intersects with Monique’s own in tragic and irreversible ways.",
+    bookPrice: "12.99",
+    percentObfuscated: "90%",
+    isBought: false,
+    isReviewed: false,
+  },
+  {
+    key: "malibu-rising",
+    notionPageId: "ab1977ce9b5440429424744aef6a644a",
+    authorName: "Taylor Jenkin Reid",
+    bookName: "Malibu Rising",
+    bookCoverImgLink:
+      "https://m.media-amazon.com/images/I/417sup82sCL._SY346_.jpg",
+    bookDescription:
+      "Four famous siblings throw an epic party to celebrate the end of the summer. But over the course of twenty-four hours, the family drama that ensues will change their lives forever. Malibu: August 1983. It’s the day of Nina Riva’s annual end-of-summer party, and anticipation is at a fever pitch. Everyone wants to be around the famous Rivas: Nina, the talented surfer and supermodel; brothers Jay and Hud, one a championship surfer, the other a renowned photographer; and their adored baby sister, Kit. Together the siblings are a source of fascination in Malibu and the world over—especially as the offspring of the legendary singer Mick Riva. The only person not looking forward to the party of the year is Nina herself, who never wanted to be the center of attention, and who has also just been very publicly abandoned by her pro tennis player husband. Oh, and maybe Hud—because it is long past time for him to confess something to the brother from whom hes been inseparable since birth. Jay, on the other hand, is counting the minutes until nightfall, when the girl he can’t stop thinking about promised she’ll be there. And Kit has a couple secrets of her own—including a guest she invited without consulting anyone.",
+    bookPrice: "12.99",
+    percentObfuscated: "90%",
+    isBought: false,
+    isReviewed: false,
+  },
 ];
 
 export default bookDetailsArray;
