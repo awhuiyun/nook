@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import HeadingOne from "./HeadingOne";
-import HeadingTwo from "./HeadingTwo";
-import HeadingThree from "./HeadingThree";
-import Paragraph from "./Paragraph";
-import BulletedItem from "./BulletedItem";
-import ImageItem from "./ImageItem";
+import NotionContentRenderer from "./NotionContentRenderer";
 import LoadingSpinner from "./LoadingSpinner";
 
 export default function BookContents({
@@ -109,47 +104,9 @@ export default function BookContents({
           <LoadingSpinner />
         </div>
       ) : isBought ? (
-        bookData.map((item, index) => {
-          if (item.type === "heading_1") {
-            return <HeadingOne key={index} content={item.content} />;
-          } else if (item.type === "heading_2") {
-            return <HeadingTwo key={index} content={item.content} />;
-          } else if (item.type === "heading_3") {
-            return <HeadingThree key={index} content={item.content} />;
-          } else if (item.type === "paragraph") {
-            return <Paragraph key={index} content={item.content} />;
-          } else if (item.type === "line_break") {
-            return <br />;
-          } else if (
-            item.type === "bulleted_list_item" ||
-            item.type === "numbered_list_item"
-          ) {
-            return <BulletedItem key={index} content={item.content} />;
-          } else if (item.type === "image") {
-            return <ImageItem url={item.content} />;
-          }
-        })
+        <NotionContentRenderer data={bookData} />
       ) : (
-        obfuscatedBookData.map((item, index) => {
-          if (item.type === "heading_1") {
-            return <HeadingOne key={index} content={item.content} />;
-          } else if (item.type === "heading_2") {
-            return <HeadingTwo key={index} content={item.content} />;
-          } else if (item.type === "heading_3") {
-            return <HeadingThree key={index} content={item.content} />;
-          } else if (item.type === "paragraph") {
-            return <Paragraph key={index} content={item.content} />;
-          } else if (item.type === "line_break") {
-            return <br />;
-          } else if (
-            item.type === "bulleted_list_item" ||
-            item.type === "numbered_list_item"
-          ) {
-            return <BulletedItem key={index} content={item.content} />;
-          } else if (item.type === "image") {
-            return <ImageItem url={item.content} />;
-          }
-        })
+        <NotionContentRenderer data={obfuscatedBookData} />
       )}
     </div>
   );

@@ -80,6 +80,7 @@ export default function PublishFormPage({
       bookPrice: bookPrice,
       percentObfuscated: percentToObfuscate,
       isBought: false,
+      isReviewed: false,
     };
     dispatch(createNewBook(newBook));
 

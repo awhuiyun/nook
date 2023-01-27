@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Footer({ isBought, bookKey, bookPrice }) {
+export default function Footer({ bookKey, bookPrice }) {
   return (
     <div className="h-[80px] bg-zinc-700 sticky bottom-0 flex flex-row justify-center mt-16">
       <p className="text-white text-2xl pt-[24px]">

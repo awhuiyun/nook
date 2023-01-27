@@ -68,6 +68,8 @@ export default function AddReview({ bookKey, setAddReviewSectionOpenFalse }) {
           label="Rating out of 5:"
           type="number"
           id="ratingInput"
+          min="0"
+          max="5"
           handleChange={handleChange}
           required={true}
           className="w-[70px]"

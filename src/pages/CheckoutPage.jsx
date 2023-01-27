@@ -34,12 +34,13 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
     return value.replace(/\D+/g, "");
   }
 
+  // Function to format credit card number input field
   function formatCreditCardNumber(value) {
     // If no value, return it
     if (!value) {
       return value;
     }
-    // First, remove non-digits
+    // Remove non-digits
     const clearValue = clearNumber(value);
 
     // Splits into sections of 4
@@ -51,8 +52,9 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
     return nextValue.trim();
   }
 
+  // Function to format credit card expiration date input field
   function formatExpirationDate(value) {
-    // First, remove non-digits
+    // Remove non-digits
     const clearValue = clearNumber(value);
 
     // Split and include forward slash
@@ -83,7 +85,6 @@ export default function CheckoutPage({ setIsNavbarNeededFalse }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Form validation
     // Update isBought to "true" in bookDetails store
     dispatch(setIsBoughtToTrue(params.item));
 

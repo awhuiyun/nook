@@ -5,6 +5,8 @@ export default function BaseInput({
   type,
   id,
   value,
+  min,
+  max,
   handleChange,
   required = false,
   disabled = false,
@@ -22,6 +24,8 @@ export default function BaseInput({
         type={type}
         id={id}
         value={value}
+        min={min ?? ""}
+        max={max ?? ""}
         onChange={handleInputChange}
         required={required}
         disabled={disabled}

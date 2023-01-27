@@ -12,7 +12,7 @@ export default function ExplorePage({
     setIsSearchbarNeededTrue();
   }, []);
 
-  // Import book details from store & filter based on searchPhrase
+  // Import book details and searchPhrase from store & filter based on searchPhrase
   const bookDetailsDataset = useSelector((state) => state.bookDetails);
   const searchPhrase = useSelector((state) => state.search.searchPhrase);
   const [filteredBookDetailsDataset, setFilterredBookDetailsDataset] =
