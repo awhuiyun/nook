@@ -62,7 +62,6 @@ export default function AddReview({ bookKey, setAddReviewSectionOpenFalse }) {
           id="reviewInput"
           handleChange={handleChange}
           required={true}
-          className="w-1/2"
         />
         <BaseInput
           label="Rating out of 5:"
