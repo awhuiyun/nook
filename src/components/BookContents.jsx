@@ -77,7 +77,7 @@ export default function BookContents({
     setIsLoading(true);
 
     axios
-      .get("http://localhost:5000/notion-data", {
+      .get("https://nook-server.onrender.com/notion-data", {
         params: {
           id: notionPageId,
         },
